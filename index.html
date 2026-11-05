@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exodus — Dev Log</title>
+  <meta name="description" content="Dev log and portfolio of Exodus.">
+  <meta name="theme-color" content="#0C0C0C">
+  <meta property="og:title" content="Exodus — Dev Log">
+  <meta property="og:description" content="Dev log and portfolio of Exodus.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Crect width='16' height='16' fill='%230C0C0C'/%3E%3Cpath d='M3 3h10v6l-4 4H3z' fill='%23D4FF00'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+  <!-- Password lock: app.js removes it once the right password is entered -->
+  <div class="lock" id="lock">
+    <form class="lock-panel" id="lock-form" autocomplete="off">
+      <div class="lock-head"><span>Restricted // Exodus dev log</span><span>Auth req.</span></div>
+      <div class="lock-body">
+        <h1>Access <span class="hl">locked</span></h1>
+        <label for="lock-input">Enter password</label>
+        <div class="lock-row">
+          <input id="lock-input" type="password" required autofocus>
+          <button type="submit">Unlock →</button>
+        </div>
+        <p class="lock-msg" id="lock-msg" role="alert"></p>
+      </div>
+      <div class="hazard" aria-hidden="true"></div>
+    </form>
+  </div>
+
+  <div class="chrome">
+    <header class="topbar">
+      <a class="brand" href="#top">Exodus<span class="blink">_</span></a>
+      <span class="coords" aria-hidden="true">X.<span id="cx">000</span> Y.<span id="cy">000</span> // Sector <span id="sector">00</span></span>
+      <nav><a href="#index">Index</a><a href="#log">Log</a></nav>
+    </header>
+    <!-- Ticker: filled with your entries by app.js -->
+    <div class="ticker" aria-hidden="true"><div class="ticker-track" id="ticker"></div></div>
+  </div>
+
+  <!-- Ruler down the left edge (desktop only), labels added by app.js -->
+  <div class="ruler" id="ruler" aria-hidden="true"></div>
+
+  <main id="top">
+    <!-- Hero: latest entry, filled in by app.js -->
+    <section class="hero" id="hero" aria-label="Latest entry">
+      <div class="hero-visual">
+        <div class="band">Latest entry</div>
+        <span class="xh tl"></span><span class="xh br"></span>
+        <svg class="reticle" viewBox="0 0 48 48" aria-hidden="true"><path class="fill" d="M8 6h22l10 10v26H8z"/><path class="cut" d="M14 16h16M14 22h20M14 28h12"/><path class="stroke" d="M2 2h8M2 2v8M46 46h-8M46 46v-8"/></svg>
+        <a class="hero-title" id="hero-title" href="#log">Loading…</a>
+      </div>
+      <aside class="hero-meta">
+        <dl id="hero-meta"></dl>
+        <div class="barcode" id="hero-barcode"></div>
+        <div class="code-id" id="hero-id"></div>
+      </aside>
+    </section>
+    <div class="hazard" aria-hidden="true"></div>
+
+    <!-- Index list -->
+    <section class="index" id="index">
+      <div class="section-head"><span><b class="secnum c-lime">01</b> Index</span><span id="count"></span></div>
+      <ol class="rows" id="rows"></ol>
+    </section>
+
+    <!-- Every entry, stacked — the page grows as you add posts -->
+    <section class="log" id="log">
+      <div class="section-head"><span><b class="secnum c-magenta">02</b> Log</span><span>Oldest first</span></div>
+      <div id="entries"></div>
+    </section>
+  </main>
+
+  <div class="halftone right footer-halftone c-cyan" aria-hidden="true"></div>
+  <footer class="footer">
+    <div class="barcode" id="foot-barcode"></div>
+    <a href="#top">Back to top ↑</a>
+  </footer>
+
+  <script src="vendor/marked.min.js"></script>
+  <script src="vendor/highlight.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
